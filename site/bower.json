@@ -1,0 +1,19 @@
+{
+  "name": "urlt_site",
+  "description": "Main site for the url tracker project",
+  "version": "0.0.0",
+  "homepage": "https://bitbucket.org/vinod_gupta/urlt_site",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular": "1.2.x",
+    "angular-mocks": "~1.2.x",
+    "jquery": "1.10.2",
+    "bootstrap": "~3.1.1",
+    "angular-route": "~1.2.x",
+    "angular-bootstrap": "~0.11.0",
+    "angular-cookies": "~1.2.25",
+    "q": "1.0.1",
+    "underscore": "~1.7.0"
+  }
+}
