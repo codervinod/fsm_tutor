@@ -44,5 +44,10 @@ urltControllers.controller('dashboardCtrl', ['$scope', '$http',
     $http.get('/dashboard').success(function(dash_info){
       $scope.dash_info = dash_info;
     });
+
+  $scope.post_action = function(post_obj) {
+      $http.post('/api/v1',post_obj).success(function(){
+      });
+    }
   }
 ]);

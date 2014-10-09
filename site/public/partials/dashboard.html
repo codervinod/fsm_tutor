@@ -5,9 +5,52 @@
       <p>
       Client ID: {{dash_info.client_id}}
       <br>
-      Client Secret: {{dash_info.client_secret}}
       </p>
     </div>  
   </div>
-  <br>
+  <div class="row">
+    <div class="col-md-4">
+    </div>  
+    <div class="col-md-2">
+      <button type="submit" class="btn btn-default btn-primary btn-block" ng-click="post_action({action:'power_on'})">Power On</button>  
+    </div>  
+    <div class="col-md-2">
+      <button type="submit" class="btn btn-default btn-danger btn-block" ng-click="post_action({action:'power_off'})">Power Off</button>  
+    </div>  
+    <div class="col-md-4">
+    </div>  
+  </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+    <p> </p>
+    </div>  
+</div>
+<div class="row">
+    <div class="col-md-12">
+    <p> </p>
+    </div>  
+</div>
+<div class="row">
+    <div class="col-md-12">
+    <p> </p>
+    </div>  
+</div>
+<div class="row">
+    <div class="col-md-12">
+    <p> </p>
+    </div>  
+</div>
+<div class="row">
+    <div class="col-md-4">
+    </div>  
+    <div class="col-md-2">
+      <button type="submit" class="btn btn-default btn-info btn-block" ng-click="post_action({action:'print_job'})">Print Job</button>  
+    </div>  
+    <div class="col-md-2">
+      <button type="submit" class="btn btn-default btn-warning btn-block" ng-click="post_action({action:'print_done'})">Print Done</button>  
+    </div>  
+    <div class="col-md-4">
+    </div>  
+  </div>
 </div>
