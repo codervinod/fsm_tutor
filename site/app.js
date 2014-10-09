@@ -52,6 +52,11 @@ app.get('/loggedin',function(req,res){
   res.send({loggedin:req.isAuthenticated()});
 });
 
+app.get('/logout', function(req, res) {
+  req.logout();
+  res.end();
+});
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');

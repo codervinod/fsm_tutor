@@ -38,8 +38,8 @@ urltControllers.controller('loginCtrl', ['$scope', '$log','$http','$location',
   }
 ]);
 
-urltControllers.controller('dashboardCtrl', ['$scope', '$http',
-  function($scope, $http, $log) {
+urltControllers.controller('dashboardCtrl', ['$scope', '$http','$location',
+  function($scope, $http, $location) {
     $scope.dash_info = {};
     $http.get('/dashboard').success(function(dash_info){
       $scope.dash_info = dash_info;
@@ -47,6 +47,12 @@ urltControllers.controller('dashboardCtrl', ['$scope', '$http',
 
   $scope.post_action = function(post_obj) {
       $http.post('/api/v1',post_obj).success(function(){
+      });
+    }
+
+  $scope.logout = function(){
+      $http.get('/logout').success(function(){
+        $location.path('/main');
       });
     }
   }

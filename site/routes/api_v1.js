@@ -6,8 +6,8 @@ var express = require('express')
 var redisClient = redis.createClient();
 
 router.post('/',function(req, res) {
-  console.log(req.body);
-  console.log(req.user._id.toString())
+  console.log(req.user._id.toString(),"sends",req.body)
+  redisClient.publish(req.user._id.toString(),req.body);
   res.end();
 });
 
