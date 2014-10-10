@@ -8,9 +8,7 @@
 
   NodeState = require('node-state');
 
-  client = new fsm_client('5437659ddb82151b63d47c7c', '0945b2257f2319be3d2ee34ebe3e9c6c', {
-    host: '127.0.0.1'
-  });
+  client = new fsm_client('5437798eb1ccba382805dbf4', '0e2c95597f3ac063e0be29767550a687');
 
   DfeStateMachine = (function(_super) {
     __extends(DfeStateMachine, _super);
