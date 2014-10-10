@@ -3,7 +3,7 @@ var util = require("util");
 var request = require('request');
 var EventEmitter = require('events').EventEmitter;
 
-var defaultHost = '10.100.138.194',
+var defaultHost = '127.0.0.1',
     defaultApiVersion = 'api/v1';
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0"
@@ -25,8 +25,7 @@ function RestClient(client_id,client_secret,options) {
 	this.redisClient.subscribe(this.client_id);
 
 	this.redisClient.on("message",function(channel,message){
-		var json_message = JSON.parse(message);
-		this.emit(json_message.action);
+		this.emit('printer_event',JSON.parse(message));
 	}.bind(this));
 }
 
