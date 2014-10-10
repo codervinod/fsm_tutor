@@ -2,3 +2,4 @@ site/node_modules/mongoose/
 site/node_modules/
 site/public/bower_components/
 fsm_client/node_modules/
+fsm_example/node_modules/
