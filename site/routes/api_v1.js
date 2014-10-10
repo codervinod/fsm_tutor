@@ -23,6 +23,7 @@ router.post('/updateState',
   passport.authenticate('basic', { session: false }),
   function(req, res) {
     console.log('receieved updateState with data',req.body);
+    redisClient.set(req.user._id.toString()+'_state',req.body.new_state);
   });
 
 module.exports = router;

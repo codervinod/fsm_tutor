@@ -47,6 +47,7 @@ urltControllers.controller('dashboardCtrl', ['$scope', '$http','$location',
 
   $scope.post_action = function(post_obj) {
       $http.post('/api/v1/sendEvent',post_obj).success(function(){
+        setTimeout(UpdateState,1000);
       });
     }
 
@@ -55,5 +56,14 @@ urltControllers.controller('dashboardCtrl', ['$scope', '$http','$location',
         $location.path('/main');
       });
     }
+
+    function UpdateState(){
+      $http.get('/state').success(function(state){
+          $scope.fsm_state = state.fsm_state;
+          setTimeout(UpdateState,2000);
+        });
+    }
+
+    UpdateState();
   }
 ]);

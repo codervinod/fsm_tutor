@@ -13,9 +13,11 @@ var express = require('express'),
   register = require('./routes/register'),
   dashboard = require('./routes/dashboard'),
   login = require('./routes/login'),
-  User = require("./models/user").User;
+  User = require("./models/user").User,
+  redis = require('redis');
 
 var app = express();
+var redisClient = redis.createClient();
 
 mongoose.connect('mongodb://localhost');
 
@@ -55,6 +57,23 @@ app.get('/loggedin',function(req,res){
 app.get('/logout', function(req, res) {
   req.logout();
   res.end();
+});
+
+app.get('/state',function(req,res){
+  if(req.isAuthenticated()){
+    redisClient.get(req.user._id.toString()+'_state',function(err,state){
+      if(err){
+        res.status(500);
+        res.end();
+        return;
+      }
+      res.send({fsm_state:state});
+      res.end();
+    });
+  }else{
+    res.status(404).end();
+  }
+
 });
 
 // catch 404 and forward to error handler

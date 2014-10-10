@@ -3,20 +3,20 @@ var client = new fsm_client('54371fa57bf8817c2f34c7f4','a786c7fcc4ea4a8200251de3
 
 client.on('power_on',function(err){
 	console.log('power_on event');
-	client.UpdateState('1');
+	client.UpdateState('Power On');
 });
 
 client.on('power_off',function(err){
 	console.log('power_off event');
-	client.UpdateState('2');
+	client.UpdateState('Power Off');
 });
 
 client.on('print_job',function(err){
 	console.log('print_job event');
-	client.UpdateState('3');
+	client.UpdateState('Print Job');
 });
 
 client.on('print_done',function(err){
 	console.log('print_done event');
-	client.UpdateState('4');
+	client.UpdateState('Print Done');
 });

@@ -21,6 +21,7 @@ function RestClient(client_id,client_secret,options) {
     this.apiVersion = options.apiVersion || defaultApiVersion;
 
 	this.redisClient = redis.createClient(6379,defaultHost);
+	this.redisClient2 = redis.createClient(6379,defaultHost);
 	this.redisClient.subscribe(this.client_id);
 
 	this.redisClient.on("message",function(channel,message){
@@ -36,7 +37,8 @@ RestClient.prototype.getBaseUrl = function () {
 };
 
 RestClient.prototype.UpdateState = function(new_state){
-	request.post(this.getBaseUrl()+'/updateState',{form:{newstate:new_state}});
+	//request.post(this.getBaseUrl()+'/updateState',{form:{new_state:new_state}});
+	this.redisClient2.set(this.client_id +'_state',new_state);
 }
 
 module.exports = RestClient;
