@@ -4,11 +4,13 @@
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  fsm_client = require('../fsm_client');
+  fsm_client = require('fsm_client');
 
   NodeState = require('node-state');
 
-  client = new fsm_client('5437659ddb82151b63d47c7c', '0945b2257f2319be3d2ee34ebe3e9c6c');
+  client = new fsm_client('5437659ddb82151b63d47c7c', '0945b2257f2319be3d2ee34ebe3e9c6c', {
+    host: '127.0.0.1'
+  });
 
   DfeStateMachine = (function(_super) {
     __extends(DfeStateMachine, _super);
@@ -59,7 +61,6 @@
 
   fsm = new DfeStateMachine({
     autostart: true,
-    initial_data: {},
     initial_state: 'Off'
   });
 

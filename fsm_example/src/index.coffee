@@ -1,7 +1,7 @@
-fsm_client = require('../fsm_client')
+fsm_client = require('fsm_client')
 NodeState = require('node-state')
 
-client = new fsm_client '5437659ddb82151b63d47c7c','0945b2257f2319be3d2ee34ebe3e9c6c'
+client = new fsm_client '5437659ddb82151b63d47c7c','0945b2257f2319be3d2ee34ebe3e9c6c', host:'127.0.0.1'
 
 class DfeStateMachine extends NodeState
   states:
@@ -37,7 +37,6 @@ class DfeStateMachine extends NodeState
 
 fsm = new DfeStateMachine
   autostart: true
-  initial_data: {}
   initial_state: 'Off'
 
 client.on 'printer_event', (event_data)->

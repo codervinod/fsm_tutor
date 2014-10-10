@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "fsm_client": "^0.1.0",
     "node-state": "^1.4.1"
   }
 }

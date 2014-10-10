@@ -3,7 +3,7 @@ var util = require("util");
 var request = require('request');
 var EventEmitter = require('events').EventEmitter;
 
-var defaultHost = '127.0.0.1',
+var defaultHost = '10.100.138.194',
     defaultApiVersion = 'api/v1';
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0"
@@ -20,8 +20,8 @@ function RestClient(client_id,client_secret,options) {
 	this.host = options.host || defaultHost;
     this.apiVersion = options.apiVersion || defaultApiVersion;
 
-	this.redisClient = redis.createClient(6379,defaultHost);
-	this.redisClient2 = redis.createClient(6379,defaultHost);
+	this.redisClient = redis.createClient(6379,this.host);
+	this.redisClient2 = redis.createClient(6379,this.host);
 	this.redisClient.subscribe(this.client_id);
 
 	this.redisClient.on("message",function(channel,message){
