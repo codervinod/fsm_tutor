@@ -7,6 +7,7 @@ var UserSchema = new Schema({
   password: { type: String, set: function(newValue) {
     return Hash.isHashed(newValue) ? newValue : Hash.generate(newValue);
   } },
+  client_secret: { type: String },
   first_name : { type: String},
   last_name : { type: String},
   account_creation_date: { type: Date},
@@ -28,13 +29,13 @@ UserSchema.statics.local_authenticate = function(email, password, callback) {
 };
 
 
-UserSchema.statics.findByClientId = function(client_id, callback) {
+UserSchema.statics.authByClientIdSecret = function(client_id, client_secret, callback) {
   if (!client_id.match(/^[0-9a-fA-F]{24}$/)) {
     callback(null,false);
     return;
   }
 
-  this.findOne({ _id : Mongoose.Types.ObjectId(client_id)}, function(error, user) {
+  this.findOne({ _id : Mongoose.Types.ObjectId(client_id) ,client_secret:client_secret}, function(error, user) {
     if (user) {
       callback(null, user);
     } else if (user || !error) {

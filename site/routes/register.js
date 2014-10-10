@@ -1,5 +1,6 @@
 var express = require('express')
   User = require("../models/user").User,
+  hat = require('hat'),
   router = express.Router();
 
 router.post('/', function(req,res,next){
@@ -7,6 +8,7 @@ router.post('/', function(req,res,next){
     password:req.body.password,
     first_name:req.body.first_name,
     last_name:req.body.last_name,
+    client_secret:hat(),
     account_creation_date:new Date(),
     profile_created:true
   });

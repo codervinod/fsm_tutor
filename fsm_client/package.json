@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "redis": "^0.12.1"
+    "redis": "^0.12.1",
+    "request": "^2.42.0"
   }
 }

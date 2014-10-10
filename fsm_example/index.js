@@ -1,18 +1,22 @@
 var fsm_client = require('../fsm_client');
-var client = new fsm_client('5436fc4be757d3b42a0aadd6');
+var client = new fsm_client('54371fa57bf8817c2f34c7f4','a786c7fcc4ea4a8200251de3d59adea6');
 
 client.on('power_on',function(err){
 	console.log('power_on event');
+	client.UpdateState('1');
 });
 
 client.on('power_off',function(err){
 	console.log('power_off event');
+	client.UpdateState('2');
 });
 
 client.on('print_job',function(err){
 	console.log('print_job event');
+	client.UpdateState('3');
 });
 
 client.on('print_done',function(err){
 	console.log('print_done event');
+	client.UpdateState('4');
 });

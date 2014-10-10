@@ -19,6 +19,7 @@
     "passport-local": "^1.0.0",
     "password-hash": "^1.2.2",
     "redis": "^0.12.1",
-    "serve-favicon": "~2.0.1"
+    "serve-favicon": "~2.0.1",
+    "hat": "0.0.3"
   }
 }

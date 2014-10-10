@@ -46,7 +46,7 @@ urltControllers.controller('dashboardCtrl', ['$scope', '$http','$location',
     });
 
   $scope.post_action = function(post_obj) {
-      $http.post('/api/v1',post_obj).success(function(){
+      $http.post('/api/v1/sendEvent',post_obj).success(function(){
       });
     }
 
